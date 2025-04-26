@@ -221,7 +221,8 @@ def get_response(model, messages, nth_generation=0, **kwargs):
 				model=model,
 				messages=messages,
 				max_tokens=max_tokens,
-				temperature=0 if nth_generation == 0 else 1,
+				# temperature=0 if nth_generation == 0 else 1,
+                temperature=1,
 				timeout=180
 			)
 			response = completion.choices[0].message.content

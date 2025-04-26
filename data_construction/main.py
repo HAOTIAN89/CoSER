@@ -1251,7 +1251,17 @@ Now, please generate the character profile, starting with ===Profile===.
     with open(save_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
-
+def process_book(book):
+        try:
+            extract(book)
+            restore_from_cache(book)
+            result = assemble(book)
+            logger.info(f"Successfully processed book: {book.get('title', 'Unknown')}")
+            return result
+        except Exception as e:
+            logger.error(f"Error processing book {book.get('title', 'Unknown')}: {str(e)}")
+            logger.error(traceback.format_exc())
+            return None
 
 if __name__ == '__main__':
 
@@ -1268,7 +1278,7 @@ if __name__ == '__main__':
 
     logger.info(f"Processing {len(books_data)} books")
 
-    def process_book(book):
+    '''def process_book(book):
         try:
             extract(book)
             restore_from_cache(book)
@@ -1278,7 +1288,7 @@ if __name__ == '__main__':
         except Exception as e:
             logger.error(f"Error processing book {book.get('title', 'Unknown')}: {str(e)}")
             logger.error(traceback.format_exc())
-            return None
+            return None'''
 
     if args.num_workers > 1:
         from concurrent.futures import ProcessPoolExecutor
