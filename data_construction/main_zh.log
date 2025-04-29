@@ -1,0 +1,879 @@
+2025-04-29 19:22:26,503 - __main__ - INFO - Processing 1 books
+2025-04-29 19:22:27,495 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:24:12,797 - __main__ - INFO - Processing 1 books
+2025-04-29 19:24:12,849 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:27:33,730 - __main__ - INFO - Processing 1 books
+2025-04-29 19:27:33,784 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:29:05,052 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 500, in parse_response
+    original_text = chunk[chunk.index(first_sentence):chunk.index(last_sentence) + len(last_sentence)]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:30:07,547 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 481, in parse_response
+    remaining_chunk = chunk[chunk.index(response['next_chunk_start']):]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:31:38,257 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 500, in parse_response
+    original_text = chunk[chunk.index(first_sentence):chunk.index(last_sentence) + len(last_sentence)]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:33:51,619 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 481, in parse_response
+    remaining_chunk = chunk[chunk.index(response['next_chunk_start']):]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:36:38,496 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 500, in parse_response
+    original_text = chunk[chunk.index(first_sentence):chunk.index(last_sentence) + len(last_sentence)]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:38:25,614 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 500, in parse_response
+    original_text = chunk[chunk.index(first_sentence):chunk.index(last_sentence) + len(last_sentence)]
+TypeError: must be str, not NoneType
+
+2025-04-29 19:38:25,634 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:39:31,229 - __main__ - INFO - {
+  "chapter_beginnings": [
+    {
+      "beginning_sentence": "却说封肃听见公差传唤，忙出来陪笑启问，那些人只嚷：“快请出甄爷来。”"
+    }
+  ],
+  "plots": [
+    {
+      "chapter_title": "第2章 贾夫人仙逝扬州城 冷子兴演说荣国府",
+      "first_sentence": "(本章完)第2章 贾夫人仙逝扬州城 冷子兴演说荣国府却说封肃听见公差传唤，忙出来陪笑启问，那些人只嚷：“快请出甄爷来。",
+      "last_sentence": "谁知自娶了这位奶奶之后，倒上下无人不称颂他的夫人，琏爷倒退了一舍",
+      "prominence": 90,
+      "summary": "本章主要讲述了贾雨村与冷子兴在酒肆相遇，冷子兴向贾雨村详细介绍了荣国府和宁国府的现状，包括家族成员的兴衰、贾宝玉的奇异出生及其性格特点，以及贾府中其他重要人物的情况。",
+      "key_characters": [
+        {
+          "name": "贾雨村",
+          "description": "原为进士出身，因贪酷被革职，现为林黛玉的家庭教师。",
+          "experience": "贾雨村在酒肆偶遇冷子兴，两人谈论贾府的兴衰和贾宝玉的奇异之处，贾雨村对贾宝玉的性格和来历进行了深入的分析。"
+        },
+        {
+          "name": "冷子兴",
+          "description": "都中古董行中贸易的商人，与贾雨村相识。",
+          "experience": "冷子兴向贾雨村详细介绍了荣国府和宁国府的现状，包括贾宝玉的出生和性格特点，以及贾府中其他重要人物的情况。"
+        },
+        {
+          "name": "贾宝玉",
+          "description": "贾政之子，出生时口中衔玉，性格乖僻，深受祖母宠爱。",
+          "experience": "贾宝玉的性格和行为被冷子兴和贾雨村详细讨论，贾雨村认为他是“情痴情种”，具有非凡的来历。"
+        }
+      ],
+      "conversation": [
+        {
+          "scenario": "贾雨村在郊外偶遇冷子兴，两人在酒肆中闲谈。",
+          "topic": "谈论贾府的兴衰和贾宝玉的奇异之处",
+          "key_characters": [
+            {
+              "name": "贾雨村",
+              "motivation": "贾雨村对贾府的兴衰和贾宝玉的性格感到好奇，希望通过冷子兴了解更多信息。"
+            },
+            {
+              "name": "冷子兴",
+              "motivation": "冷子兴乐于分享贾府的现状和贾宝玉的奇异之处，以显示自己的见识。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "酒肆中，二人闲谈慢饮，叙些别后之事。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[听说贾府出了异事，心中好奇，想了解更多。] 近日都中可有新闻没有？"
+            },
+            {
+              "character": "冷子兴",
+              "message": "[想到贾府的异事，觉得有趣。] 倒没有什么新闻，倒是老先生的贵同宗家出了一件小小的异事。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[疑惑自己族中无人在都。] 弟族中无人在都，何谈及此？"
+            },
+            {
+              "character": "冷子兴",
+              "message": "[笑着解释。] 你们同姓，岂非一族？"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[恍然大悟。] 原来是他家。若论起来，寒族人丁却自不少，东汉贾复以来，支派繁盛，各省皆有，谁能逐细考查？若论荣国一支，却是同谱。但他那等荣耀，我们不便去认他，故越发生疏了。"
+            },
+            {
+              "character": "冷子兴",
+              "message": "[感叹贾府的现状。] 老先生休这样说。如今的这荣、宁两府，也都萧索了，不比先时的光景。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[好奇贾府为何萧索。] 当日宁荣两宅人口也极多，如何便萧索了呢？"
+            },
+            {
+              "character": "冷子兴",
+              "message": "[准备详细解释。] 正是，说来也话长。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[继续追问。] 去岁我去金陵时，因欲游览六朝遗迹，那日进了石头城，从他宅门前经过。街东是宁国府，街西是荣国府，二宅相连，竟将大半条街占了。大门外虽冷落无人，隔着围墙一望，里面厅殿楼阁也还都峥嵘轩峻，就是后边一带花园里，树木山石，也都还有葱蔚洇润之气，那里象个衰败之家。"
+            },
+            {
+              "character": "冷子兴",
+              "message": "[笑着解释贾府的现状。] 亏你是进士出身，原来不通。古人有言：‘百足之虫，死而不僵。’如今虽说不似先年那样兴盛，较之平常仕宦人家，到底气象不同。如今人口日多，事务日盛，主仆上下都是安富尊荣，运筹谋画的竟无一个，那日用排场，又不能将就省俭。如今外面的架子虽没很倒，内囊却也尽上来了。这也是小事。更有一件大事：谁知这样钟鸣鼎食的人家儿，如今养的儿孙，竟一代不如一代了。"
+            }
+          ]
+        }
+      ],
+      "state": "truncated"
+    }
+  ],
+  "next_chunk_start": "谁知自娶了这位奶奶之后，倒上下无人不称颂他的夫人，琏爷倒退了一舍"
+}
+2025-04-29 19:39:31,234 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:41:30,819 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:44:18,699 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:46:30,175 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:48:59,811 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:51:19,237 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:53:16,675 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+
+2025-04-29 19:53:16,736 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:56:33,399 - __main__ - INFO - {
+  "chapter_beginnings": [
+    {
+      "beginning_sentence": "晓之花，鬓若刀裁，眉如墨画，鼻如悬胆，睛若秋波，虽怒时而似笑，即视而有情。"
+    },
+    {
+      "beginning_sentence": "却说黛玉同姐妹们至王夫人处，见王夫人正和兄嫂处的来使计议家务，又说姨母家遭人命官司等语。"
+    }
+  ],
+  "plots": [
+    {
+      "chapter_title": null,
+      "first_sentence": "晓之花，鬓若刀裁，眉如墨画，鼻如悬胆，睛若秋波，虽怒时而似笑，即视而有情。",
+      "last_sentence": "如今且说贾雨村授了应天府，一到任就有件人命官司详至案下，却是两家争买一婢，各不相让，以致殴伤人命。",
+      "prominence": 90,
+      "summary": "宝玉与黛玉初次相见，黛玉对宝玉有似曾相识之感，宝玉则对黛玉一见如故，并询问黛玉的读书情况及名字。宝玉因得知黛玉没有玉而愤怒摔玉，贾母安抚宝玉并解释黛玉的玉已随其母下葬。贾母安排黛玉住在碧纱厨，宝玉坚持要睡在碧纱厨外。袭人安慰黛玉不要因宝玉的行为而伤心。",
+      "key_characters": [
+        {
+          "name": "贾宝玉",
+          "description": "贾府的公子，性格乖张，厌恶世俗礼教，对黛玉一见如故。",
+          "experience": "宝玉对黛玉有强烈的亲近感，因黛玉没有玉而愤怒摔玉，表现出对世俗礼教的反抗。"
+        },
+        {
+          "name": "林黛玉",
+          "description": "贾母的外孙女，性格敏感多愁，初到贾府。",
+          "experience": "黛玉对宝玉有似曾相识之感，因宝玉摔玉而自责，表现出敏感和善良的性格。"
+        },
+        {
+          "name": "贾母",
+          "description": "贾府的老祖宗，疼爱宝玉和黛玉。",
+          "experience": "贾母安抚宝玉的情绪，解释黛玉的玉已随其母下葬，表现出对孙辈的疼爱和智慧。"
+        },
+        {
+          "name": "袭人",
+          "description": "宝玉的贴身丫鬟，心地纯良，关心宝玉和黛玉。",
+          "experience": "袭人安慰黛玉不要因宝玉的行为而伤心，表现出善良和体贴的性格。"
+        }
+      ],
+      "conversation": [
+        {
+          "scenario": "宝玉与黛玉初次相见，贾母在场。",
+          "topic": "宝玉询问黛玉的读书情况和名字",
+          "key_characters": [
+            {
+              "name": "贾宝玉",
+              "motivation": "宝玉对黛玉一见如故，想了解她的情况。"
+            },
+            {
+              "name": "林黛玉",
+              "motivation": "黛玉对宝玉有似曾相识之感，但保持谨慎。"
+            },
+            {
+              "name": "贾母",
+              "motivation": "贾母希望宝玉和黛玉和睦相处。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "贾宝玉",
+              "message": "[这个妹妹我曾见过的，心里倒象是远别重逢的一般。] (笑道) \"这个妹妹我曾见过的。\""
+            },
+            {
+              "character": "贾母",
+              "message": "[宝玉又在胡说了，得提醒他。] (笑道) \"又胡说了，你何曾见过？\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[虽没见过，但确实感觉熟悉。] (笑道) \"虽没见过，却看着面善，心里倒象是远别重逢的一般。\""
+            },
+            {
+              "character": "贾母",
+              "message": "[他们相处和睦就好。] (笑道) \"好，好！这么更相和睦了。\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[想多了解这个妹妹。] (走向黛玉身边坐下) \"妹妹可曾读书？\""
+            },
+            {
+              "character": "林黛玉",
+              "message": "[他为何问这个？如实回答吧。] \"不曾读书，只上了一年学，些须认得几个字。\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[想知道她的名字。] \"妹妹尊名？\""
+            },
+            {
+              "character": "林黛玉",
+              "message": "[告诉他名字也无妨。] \"黛玉。\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[她还没有表字，我给她取一个。] (笑道) \"我送妹妹一字：莫若‘颦颦’二字极妙。\""
+            },
+            {
+              "character": "探春",
+              "message": "[宝玉又在杜撰了。] (笑道) \"何处出典？\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[这确实是我杜撰的，但很有道理。] (笑道) \"《古今人物通考》上说：‘西方有石名黛，可代画眉之墨。’况这妹妹眉尖若蹙，取这个字岂不美？\""
+            },
+            {
+              "character": "探春",
+              "message": "[果然又是杜撰。] (笑道) \"只怕又是杜撰。\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[杜撰又如何？] (笑道) \"除了《四书》，杜撰的也太多呢。\""
+            }
+          ]
+        },
+        {
+          "scenario": "宝玉得知黛玉没有玉，情绪激动。",
+          "topic": "宝玉摔玉引发骚动",
+          "key_characters": [
+            {
+              "name": "贾宝玉",
+              "motivation": "宝玉因黛玉没有玉而感到不公平，愤怒摔玉。"
+            },
+            {
+              "name": "林黛玉",
+              "motivation": "黛玉因宝玉的行为而自责，担心自己惹祸。"
+            },
+            {
+              "name": "贾母",
+              "motivation": "贾母急于安抚宝玉，保护他的命根子。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "贾宝玉",
+              "message": "[她有玉吗？] \"可有玉没有？\""
+            },
+            {
+              "character": "林黛玉",
+              "message": "[他因自己有玉才问我，我没有玉。] \"我没有玉。你那玉也是件稀罕物儿，岂能人人皆有？\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[家里姐妹都没有，她也没有，这玉不是好东西！] (愤怒地摘下玉摔去) \"什么罕物！人的高下不识，还说灵不灵呢！我也不要这劳什子！\""
+            },
+            {
+              "character": "Environment",
+              "message": "地下众人一拥争去拾玉。"
+            },
+            {
+              "character": "贾母",
+              "message": "[这孩子又发狂了，得赶紧安抚他。] (急的搂了宝玉) \"孽障！你生气要打骂人容易，何苦摔那命根子！\""
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[为什么只有我有玉？] (满面泪痕哭道) \"家里姐姐妹妹都没有，单我有，我说没趣儿。如今来这个神仙似的妹妹也没有，可知这不是个好东西。\""
+            },
+            {
+              "character": "贾母",
+              "message": "[得编个理由哄他。] \"你这妹妹原有玉来着。因你姑妈去世时，舍不得你妹妹，无法可处，遂将他的玉带了去，一则全殉葬之礼，尽你妹妹的孝心；二则你姑妈的阴灵儿也可权作见了你妹妹了。因此他说没有，也是不便自己夸张的意思啊。你还不好生带上，仔细你娘知道！\""
+            },
+            {
+              "character": "Environment",
+              "message": "贾母向丫鬟手中接来亲与他带上。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[原来如此，那就算了。] (想了一想) 也就不生别论。"
+            }
+          ]
+        },
+        {
+          "scenario": "袭人安慰因宝玉摔玉而伤心的黛玉。",
+          "topic": "袭人劝慰黛玉",
+          "key_characters": [
+            {
+              "name": "袭人",
+              "motivation": "袭人担心黛玉因宝玉的行为而伤心，前来安慰。"
+            },
+            {
+              "name": "林黛玉",
+              "motivation": "黛玉因宝玉摔玉而自责，担心自己惹祸。"
+            },
+            {
+              "name": "鹦哥",
+              "motivation": "鹦哥作为黛玉的丫鬟，关心黛玉的情绪。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "是晚宝玉李嬷嬷已睡了，袭人见里面黛玉鹦哥犹未安歇，他自卸了妆，悄悄的进来。"
+            },
+            {
+              "character": "袭人",
+              "message": "[黛玉姑娘还没睡，得去看看她。] (笑问) \"姑娘怎么还不安歇？\""
+            },
+            {
+              "character": "林黛玉",
+              "message": "[袭人姐姐来了，得礼貌些。] (忙笑让) \"姐姐请坐。\""
+            },
+            {
+              "character": "Environment",
+              "message": "袭人在床沿上坐了。"
+            },
+            {
+              "character": "鹦哥",
+              "message": "[黛玉姑娘刚才很伤心，得告诉袭人。] (笑道) \"林姑娘在这里伤心，自己淌眼抹泪的，说：‘今儿才来了，就惹出你们哥儿的病来。倘或摔坏了那玉，岂不是因我之过！’所以伤心，我好容易劝好了。\""
+            },
+            {
+              "character": "袭人",
+              "message": "[黛玉姑娘太敏感了，得开导她。] \"姑娘快别这么着！将来只怕比这更奇怪的笑话儿还有呢。若为他这种行状你多心伤感，只怕你还伤感不了呢。快别多心！\""
+            },
+            {
+              "character": "林黛玉",
+              "message": "[她们说得对，我不该多想。] \"姐姐们说的，我记着就是了。\""
+            },
+            {
+              "character": "Environment",
+              "message": "又叙了一回，方才安歇。"
+            }
+          ]
+        }
+      ],
+      "state": "finished"
+    },
+    {
+      "chapter_title": "第4章 薄命女偏逢簿命郎 葫芦僧判断葫芦案",
+      "first_sentence": "(本章完)第4章 薄命女偏逢簿命郎 葫芦僧判断葫芦案却说黛玉同姐妹们至王夫人处，见王夫人正和兄嫂处的来使计议家务，又说姨母家遭人命官司等语。",
+      "last_sentence": "且说那买了英莲、打死冯渊的那薛公子，亦系金陵人氏，本是书香继世之家。",
+      "prominence": 80,
+      "summary": "黛玉与姐妹们到王夫人处，听到王夫人与来使商议薛蟠打死人命官司的事。贾雨村审理冯渊被薛蟠打死一案，门子提醒雨村薛家的势力，并提供“护官符”。雨村最终徇情枉法，胡乱判断了此案，并充发了门子。",
+      "key_characters": [
+        {
+          "name": "贾雨村",
+          "description": "应天府的官员，曾受贾府和王府的帮助。",
+          "experience": "雨村初到任即面临人命官司，在门子的提醒下意识到薛家的势力，最终徇情枉法，胡乱判断了此案，并充发了门子。"
+        },
+        {
+          "name": "门子",
+          "description": "曾是葫芦庙的小沙弥，现为应天府的门子。",
+          "experience": "门子提醒雨村薛家的势力，并提供“护官符”，帮助雨村徇情枉法判断此案，最终被雨村充发。"
+        },
+        {
+          "name": "薛蟠",
+          "description": "薛家的公子，性格奢侈傲慢，因争买英莲打死冯渊。",
+          "experience": "薛蟠因争买英莲打死冯渊，仗势倚情，最终逍遥法外。"
+        },
+        {
+          "name": "冯渊",
+          "description": "小乡宦之子，因争买英莲被薛蟠打死。",
+          "experience": "冯渊因争买英莲被薛蟠打死，其家人最终只得烧埋银子。"
+        },
+        {
+          "name": "英莲",
+          "description": "甄士隐的女儿，幼年被拐卖，现被薛蟠买走。",
+          "experience": "英莲被拐子拐卖，冯渊和薛蟠争买，最终被薛蟠强行带走，命运悲惨。"
+        }
+      ],
+      "conversation": [
+        {
+          "scenario": "贾雨村审理冯渊被薛蟠打死一案，门子提醒雨村薛家的势力。",
+          "topic": "门子向雨村解释“护官符”",
+          "key_characters": [
+            {
+              "name": "贾雨村",
+              "motivation": "雨村初到任即面临人命官司，想公正审理但被门子提醒薛家的势力。"
+            },
+            {
+              "name": "门子",
+              "motivation": "门子希望雨村不要得罪薛家，并提供“护官符”和建议。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "贾雨村",
+              "message": "[这案子看似简单，但原告不依不饶。] (大怒道) \"那有这等事！打死人竟白白的走了拿不来的？\""
+            },
+            {
+              "character": "Environment",
+              "message": "便发签差公人立刻将凶犯家属拿来拷问。只见案旁站着一个门子，使眼色不叫他发签。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[门子为何阻止我？] (狐疑) 只得停了手。"
+            },
+            {
+              "character": "Environment",
+              "message": "退堂至密室，令从人退去，只留这门子一人伏侍。"
+            },
+            {
+              "character": "门子",
+              "message": "[得提醒老爷薛家的势力。] (忙上前请安，笑问) \"老爷一向加官进禄，八九年来，就忘了我了？\""
+            },
+            {
+              "character": "贾雨村",
+              "message": "[这人眼熟，是谁？] \"我看你十分眼熟，但一时总想不起来。\""
+            },
+            {
+              "character": "门子",
+              "message": "[老爷竟忘了葫芦庙的事。] (笑道) \"老爷怎么把出身之地竟忘了！老爷不记得当年葫芦庙里的事么？\""
+            },
+            {
+              "character": "贾雨村",
+              "message": "[原来是葫芦庙的小沙弥！] (大惊) 方想起往事。"
+            },
+            {
+              "character": "Environment",
+              "message": "便忙携手笑道：\"原来还是故人。\"因赏他坐了说话。这门子不敢坐，雨村笑道：\"你也算贫贱之交了。此系私室，但坐不妨。\"门子才斜签着坐下。"
+            },
+            {
+              "character": "贾雨村",
+              "message": "[他为何阻止我发签？] \"方才何故不令发签？\""
+            },
+            {
+              "character": "门子",
+              "message": "[老爷得知道“护官符”。] \"老爷荣任到此，难道就没抄一张本省的护官符来不成？\""
+            },
+            {
+              "character": "贾雨村",
+              "message": "[什么是“护官符”？] (忙问) \"何为护官符？\""
+            },
+            {
+              "character": "门子",
+              "message": "[得解释清楚，免得老爷得罪人。] \"如今凡作地方官的，都有一个私单，上面写的是本省最有权势极富贵的大乡绅名姓，各省皆然。倘若不知，一时触犯了这样的人家，不但官爵，只怕连性命也难保呢！所以叫做护官符。方才所说的这薛家，老爷如何惹得他！他这件官司并无难断之处，从前的官府都因碍着情分脸面，所以如此。\""
+            },
+            {
+              "character": "Environment",
+              "message": "一面说，一面从顺袋中取出一张抄的“护官符”来，递与雨村看时，上面皆是本地大族名宦之家的俗谚口碑。"
+            }
+          ]
+        },
+        {
+          "scenario": "门子向雨村提供解决冯渊案的建议。",
+          "topic": "门子建议雨村徇情枉法",
+          "key_characters": [
+            {
+              "name": "贾雨村",
+              "motivation": "雨村在门子的劝说下，权衡利弊，决定徇情枉法。"
+            },
+            {
+              "name": "门子",
+              "motivation": "门子希望雨村不要得罪薛家，并提供具体的解决方案。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "门子",
+              "message": "[得帮老爷想个办法。] \"小人已想了个很好的主意在此：老爷明日坐堂，只管虚张声势，动文书发签拿人。凶犯自然是拿不来的，原告固是不依，只用将薛家族人及奴仆人等拿几个来拷问。小的在暗中调停，令他们报个‘暴病身亡’，合族中及地上共递一张保呈。老爷只说善能扶鸾请仙，堂上设了乩坛，令军民人等只管来看。老爷便说：‘乩仙批了，死者冯渊与薛蟠原系夙孽，今狭路相遇，原因了结，今薛蟠已得了无名之病，被冯渊的魂魄追索而死。其祸皆由拐子而起，除将拐子按法处治外，徐不累及’等语。小人暗中嘱咐拐子，令其实招，众人见乩仙批语与拐子相符，自然不疑了。薛家有的是钱，老爷断一千也可，五百也可，与冯家作烧埋之费。那冯家也无甚要紧的人，不过为的是钱，有了银子也就无话了。老爷细想此计如何？\""
+            },
+            {
+              "character": "贾雨村",
+              "message": "[这主意虽不妥，但眼下只能如此。] (笑道) \"不妥，不妥。等我再斟酌斟酌，压服得口声才好。\""
+            },
+            {
+              "character": "Environment",
+              "message": "二人计议已定。"
+            }
+          ]
+        }
+      ],
+      "state": "finished"
+    }
+  ],
+  "next_chunk_start": "且说那买了英莲、打死冯渊的那薛公子，亦系金陵人氏，本是书香继世之家。"
+}
+2025-04-29 19:56:33,404 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:57:34,300 - __main__ - INFO - {
+  "chapter_beginnings": [
+    {
+      "beginning_sentence": "第5章 贾宝玉神游太虚境 警幻仙曲演红楼梦"
+    }
+  ],
+  "plots": [
+    {
+      "chapter_title": "第5章 贾宝玉神游太虚境 警幻仙曲演红楼梦",
+      "first_sentence": "(本章完)第5章 贾宝玉神游太虚境 警幻仙曲演红楼梦第四回中既将薛家母子在荣府中寄居等事略已表明，此回暂可不写了。",
+      "last_sentence": "此系诸名山胜境初生异卉之精，合各种宝林珠树之油所制，名为‘群芳髓’",
+      "prominence": 90,
+      "summary": "贾宝玉在秦可卿的卧房中入睡后，梦游太虚幻境，遇到警幻仙姑。警幻仙姑带他游览了太虚幻境，展示了金陵十二钗的命运册籍，并试图通过情欲声色警醒宝玉，引导他走向正路。",
+      "key_characters": [
+        {
+          "name": "贾宝玉",
+          "description": "荣国府的公子，性情乖张，聪明灵慧，对女子有特殊的情感。",
+          "experience": "在梦中游览太虚幻境，对金陵十二钗的命运感到困惑，试图理解警幻仙姑的警示。"
+        },
+        {
+          "name": "警幻仙姑",
+          "description": "太虚幻境的主宰，掌管人间风情月债，试图引导宝玉走向正路。",
+          "experience": "带宝玉游览太虚幻境，展示金陵十二钗的命运册籍，试图通过情欲声色警醒宝玉。"
+        },
+        {
+          "name": "秦可卿",
+          "description": "贾蓉的妻子，美丽温柔，安置宝玉入睡后，宝玉梦游太虚幻境。",
+          "experience": "安置宝玉入睡，宝玉随后梦游太虚幻境。"
+        }
+      ],
+      "conversation": [
+        {
+          "scenario": "宝玉在秦可卿的卧房中入睡后，梦游太虚幻境，遇到警幻仙姑。",
+          "topic": "警幻仙姑引导宝玉游览太虚幻境",
+          "key_characters": [
+            {
+              "name": "贾宝玉",
+              "motivation": "对太虚幻境充满好奇，希望了解这里的奥秘。"
+            },
+            {
+              "name": "警幻仙姑",
+              "motivation": "试图通过展示金陵十二钗的命运册籍，警醒宝玉。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "太虚幻境中，朱栏玉砌，绿树清溪，仙花荡郁，异草芬芳。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[这里真是仙境，比人间美多了。] 神仙姐姐，不知从那里来，如今要往那里去？我也不知这里是何处，望乞携带携带。"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他果然对这里充满好奇。] 吾居离恨天之上灌愁海之中，乃放春山遣香洞太虚幻境警幻仙姑是也。司人间之宇风情月债，掌尘世之女怨男痴。因近来风流冤孽缠绵于此，是以前来访察机会，布散相思。今日与尔相逢，亦非偶然。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[她的话我似懂非懂，但感觉很重要。] 这里真是个好地方，我能在这里游玩吗？"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他还不明白我的用意。] 此离吾境不远，别无他物，仅有自采仙茗一盏，亲酿美酒几瓮，素练魔舞歌姬数人，新填《红楼梦》仙曲十二支。可试随我一游否？"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[太好了，能和她一起游玩。] 喜跃非常，便忘了秦氏在何处了，竟随着这仙姑到了一个所在。"
+            },
+            {
+              "character": "Environment",
+              "message": "转过牌坊便是一座宫门，上面横书着四个大字，道是“孽海情天”。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[这些对联和匾额是什么意思？] 原来如此。但不知何为‘古今之情’，又何为‘风月之债’？从今倒要领略领略。"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他果然开始思考了。] 此中各司存的是普天下所有的女子过去未来的簿册，你乃凡眼尘躯，未便先知的。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[我一定要看看这些簿册。] 敢烦仙姑引我到那各司中游玩游玩，不知可使得么？"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[或许让他看看也无妨。] 也罢，就在此司内略随喜随喜罢。"
+            }
+          ]
+        }
+      ],
+      "state": "truncated"
+    }
+  ],
+  "next_chunk_start": "”宝玉恍恍惚惚，不觉弃了卷册，又随警幻来至后面。"
+}
+2025-04-29 19:57:34,305 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 19:59:58,837 - __main__ - ERROR - Error processing chunk for book 红楼梦: must be str, not NoneType, Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 500, in parse_response
+    original_text = chunk[chunk.index(first_sentence):chunk.index(last_sentence) + len(last_sentence)]
+TypeError: must be str, not NoneType
+
+2025-04-29 20:02:00,967 - __main__ - INFO - {
+  "chapter_beginnings": [
+    {
+      "beginning_sentence": "第6章 贾宝玉初试云雨情 刘老老一进荣国府"
+    }
+  ],
+  "plots": [
+    {
+      "summary": "贾宝玉在秦可卿的卧房中入睡后，梦游太虚幻境，遇到警幻仙姑。警幻仙姑带他游览了太虚幻境，展示了金陵十二钗的命运册籍，并试图通过情欲声色警醒宝玉，引导他走向正路。",
+      "prominence": 90,
+      "key_characters": [
+        {
+          "name": "贾宝玉",
+          "description": "荣国府的公子，性情乖张，聪明灵慧，对女子有特殊的情感。",
+          "experience": "在梦中游览太虚幻境，对金陵十二钗的命运感到困惑，试图理解警幻仙姑的警示。"
+        },
+        {
+          "name": "警幻仙姑",
+          "description": "太虚幻境的主宰，掌管人间风情月债，试图引导宝玉走向正路。",
+          "experience": "带宝玉游览太虚幻境，展示金陵十二钗的命运册籍，试图通过情欲声色警醒宝玉。"
+        },
+        {
+          "name": "秦可卿",
+          "description": "贾蓉的妻子，美丽温柔，安置宝玉入睡后，宝玉梦游太虚幻境。",
+          "experience": "安置宝玉入睡，宝玉随后梦游太虚幻境。"
+        }
+      ],
+      "chapter_title": "第5章 贾宝玉神游太虚境 警幻仙曲演红楼梦",
+      "first_sentence": "，娇若春花，媚如秋月。",
+      "last_sentence": "”吓得袭人辈众丫鬟忙上来搂住，叫：“宝玉不怕，我们在这里呢！",
+      "state": "finished",
+      "conversation": [
+        {
+          "scenario": "宝玉在秦可卿的卧房中入睡后，梦游太虚幻境，遇到警幻仙姑。",
+          "topic": "警幻仙姑引导宝玉游览太虚幻境",
+          "key_characters": [
+            {
+              "name": "贾宝玉",
+              "motivation": "对太虚幻境充满好奇，希望了解这里的奥秘。"
+            },
+            {
+              "name": "警幻仙姑",
+              "motivation": "试图通过展示金陵十二钗的命运册籍，警醒宝玉。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "太虚幻境中，朱栏玉砌，绿树清溪，仙花荡郁，异草芬芳。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[这里真是仙境，比人间美多了。] 神仙姐姐，不知从那里来，如今要往那里去？我也不知这里是何处，望乞携带携带。"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他果然对这里充满好奇。] 吾居离恨天之上灌愁海之中，乃放春山遣香洞太虚幻境警幻仙姑是也。司人间之宇风情月债，掌尘世之女怨男痴。因近来风流冤孽缠绵于此，是以前来访察机会，布散相思。今日与尔相逢，亦非偶然。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[她的话我似懂非懂，但感觉很重要。] 这里真是个好地方，我能在这里游玩吗？"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他还不明白我的用意。] 此离吾境不远，别无他物，仅有自采仙茗一盏，亲酿美酒几瓮，素练魔舞歌姬数人，新填《红楼梦》仙曲十二支。可试随我一游否？"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[太好了，能和她一起游玩。] 喜跃非常，便忘了秦氏在何处了，竟随着这仙姑到了一个所在。"
+            },
+            {
+              "character": "Environment",
+              "message": "转过牌坊便是一座宫门，上面横书着四个大字，道是“孽海情天”。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[这些对联和匾额是什么意思？] 原来如此。但不知何为‘古今之情’，又何为‘风月之债’？从今倒要领略领略。"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[他果然开始思考了。] 此中各司存的是普天下所有的女子过去未来的簿册，你乃凡眼尘躯，未便先知的。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[我一定要看看这些簿册。] 敢烦仙姑引我到那各司中游玩游玩，不知可使得么？"
+            },
+            {
+              "character": "警幻仙姑",
+              "message": "[或许让他看看也无妨。] 也罢，就在此司内略随喜随喜罢。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_title": "第6章 贾宝玉初试云雨情 刘老老一进荣国府",
+      "first_sentence": "(本章完)第6章 贾宝玉初试云雨情 刘老老一进荣国府却说秦氏因听见宝玉梦中唤他的乳名，心中纳闷，又不好细问。",
+      "last_sentence": "”刘老老听了，忙问道：“原来是他？",
+      "prominence": 85,
+      "summary": "贾宝玉从梦中惊醒后，与袭人分享了梦中的经历，两人因此发生了亲密关系。与此同时，刘老老为了家庭的生计，决定前往荣国府寻求帮助。",
+      "key_characters": [
+        {
+          "name": "贾宝玉",
+          "description": "荣国府的公子，性情乖张，聪明灵慧，对女子有特殊的情感。",
+          "experience": "从梦中惊醒后，与袭人分享了梦中的经历，两人因此发生了亲密关系。"
+        },
+        {
+          "name": "袭人",
+          "description": "贾宝玉的贴身丫鬟，聪明伶俐，对宝玉忠心耿耿。",
+          "experience": "察觉宝玉的异常，与他分享了梦中的经历，两人因此发生了亲密关系。"
+        },
+        {
+          "name": "刘老老",
+          "description": "一个久经世代的老寡妇，为了家庭的生计，决定前往荣国府寻求帮助。",
+          "experience": "为了家庭的生计，决定前往荣国府寻求帮助，带着孙子板儿前往荣国府。"
+        },
+        {
+          "name": "狗儿",
+          "description": "刘老老的女婿，家境贫寒，因生计问题心情烦躁。",
+          "experience": "因生计问题心情烦躁，与刘老老商议后，决定让刘老老前往荣国府寻求帮助。"
+        }
+      ],
+      "state": "truncated",
+      "conversation": [
+        {
+          "scenario": "贾宝玉从梦中惊醒后，与袭人分享了梦中的经历，两人因此发生了亲密关系。",
+          "topic": "宝玉与袭人分享梦中经历",
+          "key_characters": [
+            {
+              "name": "贾宝玉",
+              "motivation": "对梦中的经历感到困惑，希望与袭人分享。"
+            },
+            {
+              "name": "袭人",
+              "motivation": "察觉宝玉的异常，希望了解他的情况。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "宝玉的卧房内，袭人正在为宝玉整理衣物。"
+            },
+            {
+              "character": "袭人",
+              "message": "[宝玉的脸色有些奇怪，不知道发生了什么。] 宝玉，你怎么了？"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[我该怎么和她说呢？] 袭人，我刚才做了一个奇怪的梦。"
+            },
+            {
+              "character": "袭人",
+              "message": "[他果然有心事。] 什么梦？能和我说说吗？"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[她是我最信任的人，应该可以告诉她。] 我梦到了一个仙境，那里有仙姑，还有许多美丽的女子。"
+            },
+            {
+              "character": "袭人",
+              "message": "[他梦到了仙境？] 那仙姑对你说了什么？"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[她的话让我有些困惑。] 她说我是‘天下古今第一淫人’，还让我领略了仙闺幻境的风光。"
+            },
+            {
+              "character": "袭人",
+              "message": "[他怎么会梦到这些？] 宝玉，你别多想，那只是个梦。"
+            },
+            {
+              "character": "贾宝玉",
+              "message": "[可是梦中的感觉那么真实。] 袭人，你能陪我一会儿吗？"
+            },
+            {
+              "character": "袭人",
+              "message": "[他看起来有些害怕。] 好，我在这里陪你。"
+            }
+          ]
+        },
+        {
+          "scenario": "刘老老为了家庭的生计，决定前往荣国府寻求帮助。",
+          "topic": "刘老老与狗儿商议前往荣国府",
+          "key_characters": [
+            {
+              "name": "刘老老",
+              "motivation": "为了家庭的生计，决定前往荣国府寻求帮助。"
+            },
+            {
+              "name": "狗儿",
+              "motivation": "因生计问题心情烦躁，希望找到解决的办法。"
+            }
+          ],
+          "dialogues": [
+            {
+              "character": "Environment",
+              "message": "刘老老的家中，狗儿因生计问题心情烦躁。"
+            },
+            {
+              "character": "刘老老",
+              "message": "[狗儿这样下去不行，我得想办法。] 姑爷，你别嗔着我多嘴，咱们村庄人家儿，那一个不是老老实实，守着多大碗儿吃多大的饭呢？"
+            },
+            {
+              "character": "狗儿",
+              "message": "[她说得对，但我又能怎么办？] 你老只会在炕头上坐着混说，难道叫我打劫去不成。"
+            },
+            {
+              "character": "刘老老",
+              "message": "[我得给他出个主意。] 谁叫你去打劫呢，也到底大家想个方法儿才好。不然那银子钱会自己跑到咱们家里来不成？"
+            },
+            {
+              "character": "狗儿",
+              "message": "[她有什么好办法？] 有法儿还等到这会子呢！我又没有收税的亲戚、做官的朋友，有什么法子可想的？"
+            },
+            {
+              "character": "刘老老",
+              "message": "[我得提醒他还有荣国府这条路。] 这倒也不然。‘谋事在人，成事在天’，咱们谋到了，靠菩萨的保佑，有些机会，也未可知。"
+            },
+            {
+              "character": "狗儿",
+              "message": "[她是什么意思？] 你有什么主意？"
+            },
+            {
+              "character": "刘老老",
+              "message": "[我得告诉他荣国府的事情。] 当日你们原是和金陵王家连过宗的。二十年前，他们看承你们还好，如今是你们拉硬屎，不肯去就和他，才疏远起来。"
+            },
+            {
+              "character": "狗儿",
+              "message": "[她说的有道理。] 老老既这么说，况且当日你又见过这姑太太一次，为什么不你老人家明日就去走一边，先试试风头儿去？"
+            },
+            {
+              "character": "刘老老",
+              "message": "[我得答应他，为了这个家。] 哎哟！可是说的了：‘侯门似海。’我是个什么东西儿！他家人又不认得我，去了也是白跑。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "next_chunk_start": "”刘老老听了，忙问道：“原来是他？"
+}
+2025-04-29 20:02:01,072 - __main__ - INFO - Extracting plots from chunk for book: 红楼梦
+2025-04-29 20:04:41,495 - __main__ - ERROR - Error processing chunk for book 红楼梦: 'chapter_title', Traceback (most recent call last):
+  File "/Users/haowu/Downloads/mihoyo/Benchmark/CoSER/data_construction/main_zh.py", line 491, in parse_response
+    chapter_title = unprocessed_plot['chapter_title']
+KeyError: 'chapter_title'
+

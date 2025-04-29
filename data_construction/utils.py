@@ -193,7 +193,7 @@ def get_response(model, messages, nth_generation=0, **kwargs):
 		if model.startswith('claude'):
 			max_tokens = 8192
 		else:
-			max_tokens = 16384
+			max_tokens = 8192
 
 		if streaming: 
 			stream = client.chat.completions.create(
@@ -446,6 +446,7 @@ Important notes:
 - Keep your environmental descriptions concise but impactful, typically 1-3 sentences.
 - Respond to subtle cues in the characters' interactions to create a dynamic, reactive environment.
 - Your output should match the tone, setting, and cultural context of the scenario.
+- Output in the same language as the input. 
 
 ===The scenario is as follows===
 {scenario}"""

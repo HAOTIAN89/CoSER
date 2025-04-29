@@ -1,0 +1,8 @@
+2025-04-25 15:20:17,631 - __main__ - INFO - Processing 4 books
+2025-04-25 15:20:17,639 - __main__ - INFO - Starting parallel processing with 5 workers
+2025-04-25 15:29:21,799 - __main__ - INFO - Processing 4 books
+2025-04-25 15:29:21,807 - __main__ - INFO - Starting parallel processing with 5 workers
+2025-04-25 15:29:23,339 - __mp_main__ - INFO - Successfully processed book: Othello
+2025-04-25 15:29:23,342 - __mp_main__ - INFO - Successfully processed book: King Lear
+2025-04-25 15:29:24,393 - __mp_main__ - INFO - Extracting plots from chunk for book: Pride and Prejudice
+2025-04-25 15:29:24,882 - __mp_main__ - INFO - Extracting plots from chunk for book: A Tale of Two Cities
