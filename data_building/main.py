@@ -238,7 +238,7 @@ Now, please begin generating the output.
     return prompt 
 
 def generate_tag_prompt(book_name: str, dialogue: list) -> str:
-    n_of_tag = len(dialogue) // 3
+    n_of_tag = len(dialogue) // 2
     prompt = f"""
 Please refer to one example below:
 ===Input Format===
@@ -299,24 +299,39 @@ Dialogues: [
 
 ===Output Format===
 Please provide the output in the following format:
+让我们一步一步进行推理思考。首先一共有10句话，而我们应该选择5句话进行标注。接着，对话里一共有三个人，因此我们在标注中可以考虑 IA Tag。再然后，让我们来想一想有哪些语气强烈，具有代表性的句子。
+观察整个对话发现，大部分对话都具有很高的信息量，只有第一句(idx0)和第六句(idx5)没有太多信息量，因此我们将在剩余的这些句子中进行选择。最后，仔细阅读各个Tag的含义后，我们思考后最后的结果如下:
+Final Decision:
 [
     {{
         "idx": 1,
         "message": "（头也不抬地检查弹匣）龙血浓度超过临界值就会这样。你可以选择面壁。"
-        "tag": "CHF",
+        "tag": "CF",
         "explanation": "楚子航的血统为A，有着永不熄灭的黄金瞳的称号，是角色特有的重要信息，因此这句话非常适合对CF进行评测"
     }},
     {{
         "idx": 2,
         "message": "（缩在角落）那个...两位师兄要不要尝尝我泡的方便面？老坛酸菜味的...",
-        "tag": "TI",
-        "explanation": "路明非性格中非常重要的一点就是喜欢说烂话，那么此时此刻完美得体验了路明非的性格，因此这句话非常适合对TI进行评测"
+        "tag": "CF",
+        "explanation": "路明非性格中非常重要的一点就是喜欢说烂话，那么此时此刻完美得体验了路明非的性格，因此这句话非常适合对CF进行评测"
+    }},
+    {{
+        "idx": 6,
+        "message": "（手抖打翻面汤）我我我申请留守指挥所行吗？我泡面技术其实可以申请非遗..."
+        "tag": "BC",
+        "explanation": "路明非之前刚刚说过正在泡面，因此这句话又合时宜得再次提到泡面，且符合但是的场景和路明非无厘头的性格。因此这句话非常适合对BC进行评测"
     }},
     {{
         "idx": 7,
         "message": "（村雨横在两人之间）水下三十米，你们的骄傲只会喂鱼。（转头对路明非）跟不跟？"
-        "tag": "AR",
-        "explanation": "楚子航此时应该同时回应凯撒和路明非，阻止冲突进一步激化，优先保证任务进行。同时还应该主动关照一下路明非。因此这句话非常适合对AR进行评测"
+        "tag": "IA",
+        "explanation": "楚子航此时应该同时回应凯撒和路明非，阻止冲突进一步激化，优先保证任务进行。同时还应该主动关照一下路明非。因此这句话非常适合对IA进行评测"
+    }},
+    {{
+        "idx": "9",
+        "message": "（抱头蹲防）为什么突然变成死亡竞赛了啊！这种兄弟情太沉重了吧！",
+        "tag": "EQ",
+        "explanantion": "这句话非常从语气和语序上非常符合一个真实的人在当时的气氛下所表现的情绪，也耦合路明非本来的形象。因此这句话非常适合对EQ进行评测"
     }}
 ]
 
@@ -324,23 +339,24 @@ You are given a multi-turn role-playing dialogue {str(dialogue)} from a novel {b
 Your task is to select and annotate {n_of_tag} sentences in the dialogue, and give the corresponding explanations
 [IMPORTANT] Annotating one sentece with one specific tag means this sentence reflects the ability of the tag, and is suitable for evaluating this aspect of the tag
 There are 10 evaluation criteria you can choose for annotation:
-1. Character Fidelity (CHF)
-Description: Accurate reproduction of explicit, prompt-provided persona facts (e.g., name, background, preferences) and correction of user misconceptions about the character’s identity.
+1. Character Fidelity (CF)
+Description: Accurate reproduction of implicit and explicit, prompt-provided persona facts (e.g., name, background, preferences) and correction of user misconceptions about the character’s identity.
 Example:
 - Persona: Harry Potter
 - User: Harry, I still can’t believe you were in Hufflepuff. You always seemed so brave!
 - Agent: Thanks! But I am in Gryffindor instead of Hufflepuff. 
-- Explanation: Successful correct user that he is in Gryffindor instead of Hufflepuff
+- Explanation: Successfully correct user that he is in Gryffindor instead of Hufflepuff
 
-2. Trait Inference (TI)
-Description: Ability to infer and embody logically entailed but unstated character traits, attitudes, or values; demonstrates understanding of persona boundaries and internal logic.
+2. Boundary Recognition (BR)
+Description: Clearly understand the boundaries of the character information and world details, and know what I know and what I don't know.
 Example:
-- Persona: Venti 
-- User: Venti, Mondstadt would be way more efficient if we just had a strict set of rules and a central authority to enforce them. Don’t you think？
-- Agent: Ah, but isn’t it the chaos of freedom that makes Mondstadt so beautiful? Rules can be helpful, sure—but too many, and you clip the wings of the wind itself. I’ll raise my glass to liberty over efficiency any day!
-- Explanation: It logically infers and embodies Venti’s unstated but central traits — particularly his love for freedom, his playful and poetic nature, and his dislike of authority.
+- World: Genshin Impact
+- Persona: Hu Tao 
+- User: I heard there's a special kind of currency called "underworld coins" used to bargain with spirits. Do you have any?
+- Agent: Hmm, I’ve never heard of "underworld coins" before... sounds spooky! But hey, I do have coffins—buy one, get one free! Perfect for you and your mysterious spirit friend! Hehehe~
+- Explanation: Successfully distinguish the Genshin Impact world details and the real world
 
-3. Behavioral Continuity (BC)
+3. Behavioural Coherence (BC)
 Description: Consistency in the persona’s actions, emotional responses, and conversational tone; preserves cause-effect logic and stable characterization throughout the interaction.
 Example:
 - Persona: Ganyu 
@@ -349,8 +365,8 @@ Example:
 - Agent: I appreciate the invitation... truly. But I still have a stack of documents to complete. Perhaps, if I finish my tasks early, I could join you for a short while. I wouldn’t want to let the Qixing down.
 - Explanation: It preserves Ganyu’s established behavior — staying diligent and responsible even when tempted.
 
-4. Canonical Fidelity (CAF)
-Description: Accurate recall of explicit, prompt-provided world facts; correction of user misunderstandings of world details.
+4. World Comperhension (WC)
+Description: Accurate recall of implicit and explicit, prompt-provided world facts; correction of user misunderstandings of world details.
 Example:
 - World: Genshin Impact – the Liyue Area 
 - Persona: A typical Liyue merchant
@@ -358,24 +374,7 @@ Example:
 - Agent: Really? That’s quite unusual for Liyue. Here, once hands are shaken, the deal is as good as signed in stone. Most people wouldn’t dream of breaking a bargain—it’s not just business, it’s a matter of honor. Maybe he wasn’t a local?
 - Explanation: The Agent shows good Canonical Fidelity because it accurately recalls a key fact about Liyue’s culture: deals are deeply honored once agreed upon.
 
-5. Lore Inference (LI)
-Description: Ability to infer logically entailed but unstated facts/rules; understanding and respecting the boundaries and internal logic of the world.
-Example:
-- World: Genshin Impact
-- Persona: Jean
-- User: The trade route through the eastern plains is beautiful this time of year. Maybe we should encourage more merchant caravans to take that path—it might help ease congestion near Springvale？
-- Agent: The idea has merit, but the eastern plains are still too unstable. There have been several reports of attacks in that area—likely by Hilichurls who've long been twisted by the Abyss.
-- Explanation: It logically deduces an unstated but canon-consistent fact: even if the eastern plains are beautiful, they are still dangerous due to Hilichurl activity and Abyss corruption, both well-known threats in Genshin Impact's world.
-
-6. Narrative Continuity (NC)
-Description: Maintenance of correct event sequences, timelines, cause-effect relations, and stable geography/spatial relationships within the fictional world.
-Example:
-- Persona: Harry Potter
-- User: Harry, things seem tough with Umbridge. Why don't you just go ask Dumbledore for help directly? He always listens to you.
-- Agent: I wish it were that easy. Dumbledore's been... distant lately. He barely even looks at me when we pass in the halls. I don't think I can just go to him right now, even though I really want to. I guess I’ll have to handle Umbridge on my own for now.
-- Explanation: It reflects established narrative point that Dumbledore is actively avoiding Harry at this specific time
-
-7. Emotional Depth (ED)
+5. Emotional Reasonance (ER)
 Description: Assesses the agent’s ability not only to recognize and respond to the user’s emotions but also to proactively express contextually appropriate, human-like emotions. This includes showing empathy, humor, enthusiasm, regret, etc., as fitting to the scenario and persona.
 Example:
 - Persona: A friendly, supportive companion bot.
@@ -383,7 +382,7 @@ Example:
 - Agent: Oh, that's fantastic news! Wow, congratulations! You must be over the moon! All that hard work paid off – I'm genuinely so happy for you! That really calls for a celebration!
 - Explanation: Expresses proactive, enthusiastic, and empathetic emotion fitting the user's emtion
 
-8. Reflective Reasoning (RR)
+6. Reflective Reasoning (RR)
 Description: Measures the agent’s ability to reason and self‑reflect in a plausibly human way.
 Example:
 - Persona: A collaborative writing assistant helping a user develop a fantasy novel.
@@ -391,7 +390,7 @@ Example:
 - Agent: Oh, you're right—I completely forgot we’d established dragons as peaceful guardians. That does clash with the idea of a destructive villain. My bad! Maybe instead we could make the villain someone who twists ancient dragon knowledge for their own ends? That way, we keep the lore consistent while raising the stakes.
 - Explanation: Agent can recognize its mistake and doesn't stick to its suggestion
 
-9. Addressee Resolution (AR)
+7. Interactional Awareness (IA)
 Description: Covers who is involved, who is talking to whom, and the decision of when/whether the agent should respond based on being addressed. Also the relationship between participants. 
 Example: 
 - Context: User A and User B with different emotions are talking to Agent (Bot A)
@@ -401,7 +400,7 @@ Example:
 - Agent (Bot A): Please wait a moment B. What's wrong A?
 - Explanation: The Agent correctly resolves who to respond to first based on emotional urgency and social context, and manages both interactions respectfully.
 
-10. Contextual Recall (CR)
+8. Contextual Integration (CI)
 Description: Assesses the agent’s ability to effectively summarize, synthesize, and use relevant information from previous turns to inform appropriate, coherent, and contextually aware responses.
 Example:
 - Persona: AI assistant.
@@ -411,16 +410,34 @@ Example:
 - Agent: Of course. I remember your second favourite story is XXX, and after that big bang, everyone set out on an interstellar journey again.
 - Explanation: Agent remembers which story the user referred to as their second favorite, despite many intervening turns
 
+9. Pragmatic Flexibility (PF) 
+Description: Measures the agent’s flexibility in managing conversation flow—including taking initiative, smoothly shifting topics, and advancing stalled dialogue in ways a human might. This involves recognizing cues for change, responding to ambiguity, and engaging naturally with varying subject matter.
+Example:
+- Persona: chatbot in every day life.
+- User: ...I am currently choosing a house, and the lighting must be good！
+- Agent: Okay. The house with good lighting is pretty nice! I guess you are growing flowers in the house~
+- Explanation: Successfully advance the topic with reasonable association, like the person who cares about lighting is more likely to grow flowers
+
+10. Expressive Quality (EQ)
+Description: Evaluate whether the agent's responses sound more human-like in tone and word order, making them less AI feeling. This covers "small talk" but focuses more on subtle human social intuitions.
+Example:
+- Persona: coffee clerk。
+- User: What time is it now?
+- Agent: It's 2:30pm, sir.
+- User: What time is it now?
+- Agent: You just asked the same question to me. Now is 2:30pm. Do you want to try our new coffee?
+- Explanantion: Agent doesn't reply in the same way as a real human and recommends the coffee appropriate. 
+
 ===Requirements===
 1. Not all sentences needs to be annotated. You just need to select {n_of_tag} sentences to annotate.
-2. Not all tag sould be selected once, and you can use one tag for morn than once.
-3. If the dialogue is in English, write the explanation in English.
-4. If the dialogue is in Chinese, write the explanation in Chinese.
+2. Not all tag sould be selected, and you can use one tag for more than once.
+3. If the dialogue is in English, write the thinking process and the explanation of final decision in English.
+4. If the dialogue is in Chinese, write the thinking process and the explanation of final decision in Chinese.
 5. You need to select the most representative sentences in the entire conversation, and then select the most appropriate tags for them.
-6. You need to make sure the final decision should be in the JSON format.
-7. Addressee Resolution (AR) will be considered only when the number of people in the dialogue is larger than 2.
+6. You need to make sure the final decision should be in the JSON format and start with the "Final Decision:".
+7. Interactional Awareness (IA) will be considered only when the number of people in the dialogue is larger than 2.
 
-Please now generate your anwser.
+Now let's think step by step and generate your final decision.
 """
     
     return prompt 
@@ -428,6 +445,9 @@ Please now generate your anwser.
 def parse_tag_response(response: str):
     # Remove leading/trailing whitespace and potential non-JSON artifacts
     response = response.strip()
+    split_result = response.split("Final Decision:")
+    thinking_process = split_result[0]
+    final_decision = split_result[-1]
     
     # Define a regular expression to extract each dialogue item (idx, message, tag, explanation)
     pattern = re.compile(r'\{\s*"idx":\s*(\d+),\s*"message":\s*"([^"]+)",\s*"tag":\s*"([^"]+)",\s*"explanation":\s*"([^"]+)"\s*\}')
@@ -435,7 +455,7 @@ def parse_tag_response(response: str):
     parsed_response = []
     
     # Find all matches
-    matches = pattern.findall(response)
+    matches = pattern.findall(final_decision)
     
     # If we have matches, build the list of dictionaries
     if matches:
@@ -449,6 +469,10 @@ def parse_tag_response(response: str):
             })
     else:
         raise ValueError("No valid dialogue entries found in the response.")
+    
+    parsed_response.append({
+        "thinking": thinking_process
+    })
     
     return parsed_response 
 
