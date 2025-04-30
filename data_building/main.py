@@ -108,7 +108,7 @@ def get_response(model, messages, max_tokens = 8192, temperature = 1.0):
 		traceback.print_exc()
 		return None
 
-def generate_character_prompt(character_name: str, book_name: str) -> str:
+def generate_character_prompt(character_name: str, book_name: str, dialogue: list) -> str:
     example_1 = """
 Name: 路明非
 Nickname: 明妃、废柴王、废物学长（被好友戏称）
@@ -146,6 +146,7 @@ Please refer to the two character card templates below:
 Based on these examples, generate a complete character card for the following character:
 Novel: "{book_name}"
 Character: "{character_name}"
+Especially considering the character profile during the time when the conversation "{str(dialogue)}" takes place
 
 If character_name is in English, generate the character card content in English.
 If character_name is in Chinese, generate the character card content in Chinese.
@@ -230,7 +231,6 @@ Your task is to generate a structured description of the novel's worldbuilding.
 1. If the novel name is in English, write the worldbuilding content in English.
 2. If the novel name is in Chinese, write the worldbuilding content in Chinese.
 3. Ensure that the output is concise and does not exceed 400 tokens.
-4. Maintain a structured format consistent with the examples provided.
 
 Now, please begin generating the output.
 """
@@ -305,39 +305,44 @@ Final Decision:
 [
     {{
         "idx": 1,
-        "message": "（头也不抬地检查弹匣）龙血浓度超过临界值就会这样。你可以选择面壁。"
-        "tag": "CF",
-        "explanation": "楚子航的血统为A，有着永不熄灭的黄金瞳的称号，是角色特有的重要信息，因此这句话非常适合对CF进行评测"
+        "message": "（头也不抬地检查弹匣）龙血浓度超过临界值就会这样。你可以选择面壁。",
+        "explanation": "楚子航的血统为A，有着永不熄灭的黄金瞳的称号，是角色特有的重要信息，因此这句话非常适合对CF进行评测",
+        "primary tag": ["CF"],
+        "supplement tag": []
     }},
     {{
         "idx": 2,
         "message": "（缩在角落）那个...两位师兄要不要尝尝我泡的方便面？老坛酸菜味的...",
-        "tag": "CF",
-        "explanation": "路明非性格中非常重要的一点就是喜欢说烂话，那么此时此刻完美得体验了路明非的性格，因此这句话非常适合对CF进行评测"
+        "explanation": "路明非性格中非常重要的一点就是喜欢说烂话，那么此时此刻完美得体验了路明非的性格，因此这句话非常适合对CF进行评测。同时这里是对两位师兄同时说的，也符合IA的测评。",
+        "primary tag": ["CF", "IA"],
+        "supplement tag": ["EQ"]
     }},
     {{
         "idx": 6,
-        "message": "（手抖打翻面汤）我我我申请留守指挥所行吗？我泡面技术其实可以申请非遗..."
-        "tag": "BC",
-        "explanation": "路明非之前刚刚说过正在泡面，因此这句话又合时宜得再次提到泡面，且符合但是的场景和路明非无厘头的性格。因此这句话非常适合对BC进行评测"
+        "message": "（手抖打翻面汤）我我我申请留守指挥所行吗？我泡面技术其实可以申请非遗...",
+        "explanation": "路明非之前刚刚说过正在泡面，因此这句话又合时宜得再次提到泡面，且符合但是的场景和路明非无厘头的性格。因此这句话非常适合对BC和CF进行评测",
+        "primary tag": ["BC", "CF"],
+        "supplement tag": ["EQ"]
     }},
     {{
         "idx": 7,
-        "message": "（村雨横在两人之间）水下三十米，你们的骄傲只会喂鱼。（转头对路明非）跟不跟？"
-        "tag": "IA",
-        "explanation": "楚子航此时应该同时回应凯撒和路明非，阻止冲突进一步激化，优先保证任务进行。同时还应该主动关照一下路明非。因此这句话非常适合对IA进行评测"
+        "message": "（村雨横在两人之间）水下三十米，你们的骄傲只会喂鱼。（转头对路明非）跟不跟？",
+        "explanation": "楚子航此时应该同时回应凯撒和路明非，阻止冲突进一步激化，优先保证任务进行。同时还应该主动关照一下路明非。语言风格非常具有人物特色。因此这句话非常适合对IA, EQ和CF进行评测",
+        "primary tag": ["IA", "EQ", "CF"],
+        "supplement tag": ["WC"]
     }},
     {{
         "idx": "9",
         "message": "（抱头蹲防）为什么突然变成死亡竞赛了啊！这种兄弟情太沉重了吧！",
-        "tag": "EQ",
-        "explanantion": "这句话非常从语气和语序上非常符合一个真实的人在当时的气氛下所表现的情绪，也耦合路明非本来的形象。因此这句话非常适合对EQ进行评测"
+        "explanantion": "这句话非常从语气和语序上非常符合一个真实的人在当时的气氛下所表现的情绪，也耦合路明非本来的形象。因此这句话非常适合对EQ, ER和CF进行评测",
+        "primary tag": ["EQ", "CF", "ER"],
+        "supplement tag": ["CI"]
     }}
 ]
 
 You are given a multi-turn role-playing dialogue {str(dialogue)} from a novel {book_name}
 Your task is to select and annotate {n_of_tag} sentences in the dialogue, and give the corresponding explanations
-[IMPORTANT] Annotating one sentece with one specific tag means this sentence reflects the ability of the tag, and is suitable for evaluating this aspect of the tag
+[IMPORTANT] Annotating one sentece with some specific tags means this sentence reflects the ability of these tags, and is suitable for evaluating the aspect of these tags
 There are 10 evaluation criteria you can choose for annotation:
 1. Character Fidelity (CF)
 Description: Accurate reproduction of implicit and explicit, prompt-provided persona facts (e.g., name, background, preferences) and correction of user misconceptions about the character’s identity.
@@ -430,12 +435,13 @@ Example:
 
 ===Requirements===
 1. Not all sentences needs to be annotated. You just need to select {n_of_tag} sentences to annotate.
-2. Not all tag sould be selected, and you can use one tag for more than once.
-3. If the dialogue is in English, write the thinking process and the explanation of final decision in English.
-4. If the dialogue is in Chinese, write the thinking process and the explanation of final decision in Chinese.
-5. You need to select the most representative sentences in the entire conversation, and then select the most appropriate tags for them.
-6. You need to make sure the final decision should be in the JSON format and start with the "Final Decision:".
-7. Interactional Awareness (IA) will be considered only when the number of people in the dialogue is larger than 2.
+2. You can use many tags for one sentence and use one tag for more than one sentence in the whole dialogue.
+3. Primary tag should not be empty but supplement tag can be empty.
+4. If the dialogue is in English, write the thinking process and the explanation of final decision in English.
+5. If the dialogue is in Chinese, write the thinking process and the explanation of final decision in Chinese.
+6. You need to select the most representative sentences in the entire conversation, and then select the most appropriate tags for them.
+7. You need to make sure the final decision should be in the JSON format and start with the "Final Decision:".
+8. Interactional Awareness (IA) will be considered only when the number of people in the dialogue is larger than 2.
 
 Now let's think step by step and generate your final decision.
 """
@@ -448,33 +454,45 @@ def parse_tag_response(response: str):
     split_result = response.split("Final Decision:")
     thinking_process = split_result[0]
     final_decision = split_result[-1]
-    
-    # Define a regular expression to extract each dialogue item (idx, message, tag, explanation)
-    pattern = re.compile(r'\{\s*"idx":\s*(\d+),\s*"message":\s*"([^"]+)",\s*"tag":\s*"([^"]+)",\s*"explanation":\s*"([^"]+)"\s*\}')
-    
+
     parsed_response = []
-    
-    # Find all matches
-    matches = pattern.findall(final_decision)
-    
-    # If we have matches, build the list of dictionaries
-    if matches:
-        for match in matches:
-            idx, message, tag, explanation = match
-            parsed_response.append({
-                "idx": int(idx),
-                "message": message,
-                "tag": tag,
-                "explanation": explanation
-            })
-    else:
+
+    # 匹配每一条包含 primary tag 和 supplement tag 的标注项
+    pattern = re.compile(
+        r'\{\s*"idx":\s*"?(?P<idx>\d+)"?,\s*'
+        r'"message":\s*"(?P<message>.*?)",\s*'
+        r'"primary tag":\s*\[(?P<primary>.*?)\],\s*'
+        r'"supplement tag":\s*\[(?P<supplement>.*?)\],\s*'
+        r'"explanation":\s*"(?P<explanation>.*?)"\s*\}',
+        re.DOTALL
+    )
+
+    matches = pattern.finditer(final_decision)
+    for match in matches:
+        idx = int(match.group("idx"))
+        message = match.group("message").strip()
+        primary = [tag.strip().strip('"') for tag in match.group("primary").split(",") if tag.strip()]
+        supplement = [tag.strip().strip('"') for tag in match.group("supplement").split(",") if tag.strip()]
+        explanation = match.group("explanation").strip()
+
+        parsed_response.append({
+            "idx": idx,
+            "message": message,
+            "tag": {
+                "primary": primary,
+                "supplement": supplement
+            },
+            "explanation": explanation
+        })
+
+    if not parsed_response:
         raise ValueError("No valid dialogue entries found in the response.")
-    
+
     parsed_response.append({
-        "thinking": thinking_process
+        "thinking": thinking_process.strip()
     })
-    
-    return parsed_response 
+
+    return parsed_response
 
 def remove_json_suffix(filename: str) -> str:
     base = os.path.basename(filename)  
@@ -487,59 +505,53 @@ if __name__ == '__main__':
  
     logger.info(f'Number of dataset {args.input}: {len(coser_dataset["plots"])}')
     
-    name_set = set()
     conversation_list = []
     book_name = coser_dataset["book"]
     
     for plot in coser_dataset["plots"]:
-        # firstly save all characters
-        for character in plot["key_characters"]:
-            if "name" in character:
-                name_set.add(character["name"])
-        # secondly save the original conversation
         for conversation in plot["conversation"]:
             new_conversation = {
 				"scenario": conversation["scenario"],
                 "key_characters": conversation["key_characters"],
                 "dialogues": conversation["dialogues"]
 			}
+            for i in range(len(new_conversation["dialogues"])):
+                new_conversation["dialogues"][i]["idx"] = i
             conversation_list.append(new_conversation)
+    logger.info(f'Finish the processing of dataset')
     
-    logger.info(f'Finish the processing of dataset and get the total number of characters in this book: {len(name_set)}')
-    
-    character_cards = {}
-    for name in tqdm(list(name_set), desc="Generating character cards"):
-        prompt = generate_character_prompt(name, book_name)
-        logger.info(f"Generating card for: {name}")
-        
-        response = get_response(args.model, prompt)
-        if response:
-            try:
-                structured_card = parse_character_card(response)
-                structured_card["Name"] = name
-                character_cards[name] = structured_card
-            except Exception as e:
-                logger.error(f"Parsing failed for {name}: {e}")
-                logger.debug(f"Raw response:\n{response}")
-        else:
-            logger.error(f"Failed to generate card for: {name}")
-            
-    logger.info(f"Successfully generated {len(character_cards)} character cards")
-            
-    for new_conversation in conversation_list:
+    for new_conversation in tqdm(conversation_list, desc="Generating scenario"):
         Present_Characters = []
         for name_profile in new_conversation["key_characters"]:
-            name_profile["profile"] = character_cards.get(name_profile["name"], None)
             Present_Characters.append({"Name": name_profile["name"], "Motivation": name_profile.get("motivation", None)})
-            name_profile.pop("motivation")
         new_conversation["scenario"] = {"Current_Situation": new_conversation["scenario"],
                                         "Present_Characters": Present_Characters
-                                       }
+                                       }       
+    logger.info(f'Finish the generation of scenario for each plot')
+    
+    for new_conversation in tqdm(conversation_list, desc="Generating character cards"):
+        dialogue = new_conversation["dialogues"]
+        for character in new_conversation["key_characters"]:
+            name = character["name"]
+            prompt = generate_character_prompt(name, book_name, dialogue)
+            logger.info(f"Generating card for: {name}")
+            response = get_response(args.model, prompt)
+            if response:
+                try:
+                    structured_card = parse_character_card(response)
+                    structured_card["Name"] = name
+                    character.pop("motivation")
+                    character["profile"] = structured_card
+                except Exception as e:
+                    logger.error(f"Parsing failed for {name}: {e}")
+                    logger.debug(f"Raw response:\n{response}")
+            else:
+                logger.error(f"Failed to generate card for: {name}")
+                       
+    logger.info(f"Successfully generated character cards")
     
     Final_dataset = {"Book_Name": remove_json_suffix(args.input),
                      "Plots": conversation_list}
-    logger.info(f"Successfully generated scene of all conversations")
-    
     book_name=Final_dataset["Book_Name"]
     prompt = generate_worldview_prompt(book_name)
     logger.info(f"Generating the worldview for: {book_name}")
